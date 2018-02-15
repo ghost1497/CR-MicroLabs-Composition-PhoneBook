@@ -11,23 +11,22 @@ public class PhoneBook {
     private TreeMap<String, ArrayList> phoneBook;
     ArrayList<String> phoneNumberList;
 
-    public PhoneBook(){
+    public PhoneBook() {
         this.phoneBook = new TreeMap<String, ArrayList>();
     }
 
 
-
-    public void add(String name, String... phoneNumber){
+    public void add(String name, String... phoneNumber) {
         phoneNumberList = new ArrayList<String>();
-        for (String number : phoneNumber){
+        for (String number : phoneNumber) {
             phoneNumberList.add(number);
         }
         phoneBook.put(name, phoneNumberList);
     }
 
-    public String lookUp(String name){
+    public String lookUp(String name) {
         String result = String.valueOf(phoneBook.get(name));
-        return result.substring(1, result.length()-1);
+        return result.substring(1, result.length() - 1);
     }
 
     public String reverseLookup(String number) {
@@ -37,15 +36,15 @@ public class PhoneBook {
                 result = entry.getKey();
             }
         }
-;
+        ;
         return result;
     }
 
-    public String getPhoneBook(){
+    public String getPhoneBook() {
         StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, ArrayList> entry : phoneBook.entrySet()){
+        for (Map.Entry<String, ArrayList> entry : phoneBook.entrySet()) {
             result.append(String.format("%-20s", entry.getKey()));
-            for(int i = 0; i < entry.getValue().size(); i++){
+            for (int i = 0; i < entry.getValue().size(); i++) {
                 result.append(entry.getValue().get(i));
                 result.append(" ");
             }
@@ -55,25 +54,23 @@ public class PhoneBook {
         return result.toString();
     }
 
-    public Boolean removeRecord(String name){
+    public Boolean removeRecord(String name) {
         Boolean result = true;
         phoneBook.remove(name);
-        if (!(lookUp(name).equals(name))){
+        if (!(lookUp(name).equals(name))) {
             result = false;
         }
         return result;
     }
 
-    public Boolean removeEntry(String name, String number){
+    public Boolean removeEntry(String name, String number) {
         Boolean result = true;
         phoneBook.get(name).remove(number);
-        if (!(reverseLookup(number).equals(number))){
+        if (!(reverseLookup(number).equals(number))) {
             result = false;
         }
         return result;
     }
-
-
 
 
 }
