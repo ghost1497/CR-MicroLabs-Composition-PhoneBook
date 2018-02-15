@@ -37,6 +37,13 @@ public class PhoneBookTest {
         phoneBook.add(name, phoneNumber, pN2);
         phoneBook.add(name2, pN2);
         phoneBook.add(name3, pN3);
+        String expected = "Durp                2153755497 2675677701 \n" +
+        "Frankie             2675677701 \n" +
+        "Lenny Kravitz       3645274567 \n" +
+        "Steve Harvey        2153755497 6574383954 \n" +
+        "Zoe                 7896785647 \n";
+        String actual = phoneBook.getPhoneBook();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
