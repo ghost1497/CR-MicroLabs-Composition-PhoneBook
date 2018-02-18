@@ -87,6 +87,7 @@ public class PhoneBookTest {
                 "Steve Harvey        2153755497 6574383954 \n" +
                 "Zoe                 7896785647 \n";
         String actual = phoneBook.getPhoneBook();
+        //System.out.println(actual);
         Assert.assertEquals(expected, actual);
     }
 }
